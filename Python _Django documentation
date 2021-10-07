@@ -1,0 +1,52 @@
+										🤩️DJANGO TUTORIALS😍️
+Heroku site :-> https://amal-blogapp.herokuapp.com/?page=1
+🤩️TERMINAL COMMANDS:🤩️
+
+Installing Django: "pip install django"
+
+Version of DJANGO:"python3 -m django --version" OR "python -m django --version"
+
+DJANGO-ADMIN help: "DJANGO-ADMIN"
+
+Create and Start DJANGO-PROJECT: "django-admin startproject 'Name_of_the_project'"
+
+Runserver: "python manage.py runserver"
+
+Create and start app in project: "python manage.py startapp 'Name_of_the_app'"
+
+## Sub-Topic: for database connections ##
+
+Creating migration and create table auth_user for login as superuser: "python manage.py migrate"
+
+Creating a superuser as django admin: "python manage.py createsuperuser"
+
+Detecting database migration changes: "python manage.py makemigrations"
+
+To know last migrated sql query: "python manage.py sqlmigrate 'name getting from step no. 19' 'serial_no'"-->Eg.'python manage.py sqlmigrate blog 0001'
+
+For python shell: 'python manage.py shell'
+		
+		To find created user and admin:
+			>>>from django.contrib.auth.models import User
+			>>>from blog.models import Post
+			>>>User.objects.all()                       -->Querying All User Results eg.:<QuerySet [<User: amal141krishnan>, <User: test_user>]>
+			>>>User.objects.first()                     -->get first user
+			>>>User.objects.last()                      -->get last user
+			>>>User.objects.filter(username='test_user')-->for filtering results
+			
+			//Assigining to a variable for future use:
+			>>>user = User.objects.filter(username='test_user').first()
+			>>>user = User.objects.get(id=1)	    -->gives assigned user details
+			>>>user                                     -->gives assigned user
+			>>>user.id				    -->gives assigned user id
+			>>>user.pk				    -->gives current user primary key
+			
+			//Posts models and querying:
+			>>>post_1 = Post(title='Blog-1', content="Loorem ipsum bla bla", author=user)
+			>>>post_1.save()			    -->saving data in database
+			>>>Post.objects.all()			    -->show results
+			
+			//Creating post with user
+			>>>user.post_set.create(title = "Blog-4",content="Lorem ipsum saaaaa")
+			
+For forms validation better ways use "Crispy-forms":To install 'pip install django-crispy-forms'
